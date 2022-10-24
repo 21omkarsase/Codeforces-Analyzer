@@ -1,0 +1,21 @@
+.header_area {
+    background-color: rgba(0, 0, 0, 0.772);
+    color: white;
+}
+
+.header {
+    width: 80%;
+    margin: 0 auto;
+    padding: 70px 0px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.title {
+    text-align: center;
+}
+
+.content {}
