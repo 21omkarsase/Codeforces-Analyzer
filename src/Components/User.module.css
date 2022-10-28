@@ -1,0 +1,22 @@
+.userInfo {
+    /* margin: 0 auto; */
+    padding: 100px 25% 0 10%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.infoArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h3 {
+    color: tomato;
+    font-size: 23px;
+}
+
+h3 span {
+    color: black;
+    font-size: 20px;
+}

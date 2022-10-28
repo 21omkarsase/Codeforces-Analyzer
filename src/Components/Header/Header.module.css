@@ -1,21 +1,23 @@
-.header_area {
+.navbar {
     background-color: rgba(0, 0, 0, 0.772);
     color: white;
+    padding: 20px 0px;
 }
 
-.header {
-    width: 80%;
-    margin: 0 auto;
-    padding: 70px 0px 50px;
+.nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    margin: 0 0 0% 10%;
+    max-width: 1700px;
+    justify-content: space-between;
 }
 
-.title {
-    text-align: center;
+.nav span {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
 }
 
-.content {}
+.nav_links {
+    display: flex;
+    gap: 40px;
+}
