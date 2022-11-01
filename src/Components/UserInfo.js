@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { getUserInfo } from "../Actions/userAction";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import User from "../Components/User.js";
+import Loader from "../Components/Layout/Loader";
 function UserInfo() {
-  const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.userInfo);
-  const [username, setUsername] = useState("");
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setUsername("");
-    dispatch(getUserInfo(username));
-    console.log(user);
-  };
-
-  return <>{user && <User user={user} />}</>;
+  const { user, loading } = useSelector((state) => state.userInfo);
+  return (
+    <>
+      {user && <User user={user} />}
+      {loading && <Loader />}
+    </>
+  );
 }
 
 export default UserInfo;

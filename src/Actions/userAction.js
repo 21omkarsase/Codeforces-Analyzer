@@ -1,10 +1,14 @@
-import { Action } from "@remix-run/router";
 import axios from "axios";
 import {
   USER_FAIL,
   USER_REQUEST,
   USER_SUCCESS,
 } from "../Constants/UserConstatns";
+import {
+  USER_RATING_FAIL,
+  USER_RATING_REQUEST,
+  USER_RATING_SUCCESS,
+} from "../Constants/RatingConstants";
 
 export const getUserInfo =
   (username = "") =>
@@ -19,9 +23,7 @@ export const getUserInfo =
       } else if (data.status === "FAILED") {
         throw new Error(data.comment);
       }
-      console.log(data);
     } catch (error) {
-      console.log(error);
       dispatch({ type: USER_FAIL, payload: error });
     }
   };
@@ -30,18 +32,12 @@ export const getUserContests =
   (username = "") =>
   async (dispatch) => {
     try {
-      dispatch({ type: USER_REQUEST });
+      dispatch({ type: USER_RATING_REQUEST });
       const { data } = await axios.get(
         `https://codeforces.com/api/user.rating?handle=${username}`
       );
-
-      console.log(data, "userrating");
-      if (data.status == "OK") {
-        dispatch({ type: USER_SUCCESS, payload: data.result });
-      } else {
-        throw new Error("Invalid Username");
-      }
+      dispatch({ type: USER_RATING_SUCCESS, payload: data.result });
     } catch (error) {
-      dispatch({ type: USER_FAIL, payload: error });
+      dispatch({ type: USER_RATING_FAIL, payload: error });
     }
   };

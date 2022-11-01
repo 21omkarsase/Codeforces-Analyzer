@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Home.module.css";
 import { getUserInfo } from "../../Actions/userAction";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,9 +13,12 @@ function Home() {
     e.preventDefault();
     setUsername("");
     dispatch(getUserInfo(username));
-    console.log(user);
     navigate("/user");
   };
+  const [userLocal, setUserLocal] = useState([]);
+  useEffect(() => {
+    localStorage.setItem("userLocal", JSON.stringify(username));
+  }, [userLocal, username]);
   return (
     <div className={classes.search}>
       <form onSubmit={submitHandler}>

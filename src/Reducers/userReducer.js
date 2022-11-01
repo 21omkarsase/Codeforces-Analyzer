@@ -4,52 +4,58 @@ import {
   USER_SUCCESS,
 } from "../Constants/UserConstatns";
 
-export const userInfoReducer = (state = { user: null }, action) => {
+import {
+  USER_RATING_FAIL,
+  USER_RATING_REQUEST,
+  USER_RATING_SUCCESS,
+} from "../Constants/RatingConstants";
+
+export const userInfoReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_REQUEST:
       return {
-        loading: true,
         ...state,
+        loading: true,
       };
     case USER_SUCCESS:
       return {
-        loading: false,
         ...state,
+        loading: false,
         user: action.payload,
       };
     case USER_FAIL:
       return {
-        loading: false,
         ...state,
+        loading: false,
         error: action.payload,
       };
 
     default:
-      return { ...state };
+      return state;
   }
 };
 
-export const userRatingReducer = (state = { contest: null }, action) => {
+export const userRatingReducer = (state = {}, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_RATING_REQUEST:
       return {
+        ...state,
         loading: true,
-        ...state,
       };
-    case USER_SUCCESS:
+    case USER_RATING_SUCCESS:
       return {
-        loading: false,
         ...state,
+        loading: false,
         contests: action.payload,
       };
-    case USER_FAIL:
+    case USER_RATING_FAIL:
       return {
-        loading: false,
         ...state,
+        loading: false,
         error: action.payload,
       };
 
     default:
-      return { ...state };
+      return state;
   }
 };
