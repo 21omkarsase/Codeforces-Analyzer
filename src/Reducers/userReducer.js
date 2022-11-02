@@ -14,6 +14,11 @@ import {
   USER_SUBMISSION_REQUEST,
   USER_SUBMISSION_SUCCESS,
 } from "../Constants/SubmissionConstants";
+import {
+  USER_BLOG_FAIL,
+  USER_BLOG_REQUEST,
+  USER_BLOG_SUCCESS,
+} from "../Constants/BlogConstants";
 
 export const userInfoReducer = (state = {}, action) => {
   switch (action.type) {
@@ -79,6 +84,31 @@ export const userSubmissionReducer = (state = {}, action) => {
         submissions: action.payload,
       };
     case USER_SUBMISSION_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const userBlogReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_BLOG_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case USER_BLOG_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blogs: action.payload,
+      };
+    case USER_BLOG_FAIL:
       return {
         ...state,
         loading: false,

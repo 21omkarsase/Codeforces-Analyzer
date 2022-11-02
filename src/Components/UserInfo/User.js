@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./User.module.css";
 
 function User({ user }) {
+  const handleURL = `https://codeforces.com/profile/${user.handle}`;
   return (
     <>
       <section className={classes.userInfo}>
@@ -14,7 +15,13 @@ function User({ user }) {
         </div>
         <div className={classes.infoArea}>
           <h3>
-            Codeforces Handle : <span>{user.handle}</span>
+            Codeforces Handle :
+            <span>
+              <a target="_blank" href={handleURL}>
+                {" "}
+                {user.handle}
+              </a>
+            </span>
           </h3>
           <h3>
             Country : <span>{user.country}</span>

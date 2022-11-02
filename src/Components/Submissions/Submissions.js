@@ -13,8 +13,8 @@ function Submissions() {
   );
   const { user } = useSelector((state) => state.userInfo);
   const fetchSubmissions = () => {
-    if (user.handle) {
-      dispatch(getSubmissions(user.handle));
+    if (user) {
+      dispatch(getSubmissions(user.handle, count));
     }
   };
 
