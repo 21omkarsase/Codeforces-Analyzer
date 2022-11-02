@@ -2,10 +2,10 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import UserInfo from "./Components/UserInfo";
-import RatingChange from "./Components/RatingChange";
-import Submissions from "./Components/Submissions";
-import UserBlog from "./Components/UserBlog";
+import UserInfo from "./Components/UserInfo/UserInfo";
+import RatingChange from "./Components/Contests/RatingChange";
+import Submissions from "./Components/Submissions/Submissions";
+import UserBlog from "./Components/Blog/UserBlog";
 import Home from "./Components/Home/Home";
 function App() {
   return (

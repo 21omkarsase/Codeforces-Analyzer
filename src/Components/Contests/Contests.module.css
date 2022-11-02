@@ -1,0 +1,6 @@
+.contest {
+    border: 1px solid tomato;
+    color: white;
+    background-color: rgba(24, 22, 22, 0.594);
+    padding: 20px 30px;
+}
