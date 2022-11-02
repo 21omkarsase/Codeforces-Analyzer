@@ -7,9 +7,8 @@ function Home() {
   const [username, setUsername] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    localStorage.setItem("userLocal", JSON.stringify(username));
+    navigate(`/user/${username}`);
     setUsername("");
-    navigate("/user");
   };
   return (
     <div className={classes.search}>

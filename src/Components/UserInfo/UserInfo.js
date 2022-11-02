@@ -4,17 +4,17 @@ import User from "../UserInfo/User";
 import Loader from "../Layout/Loader";
 import { getUserInfo } from "../../Actions/userAction";
 import Error from "../Layout/Error";
+import { useParams } from "react-router-dom";
 
 function UserInfo() {
+  const { username } = useParams();
+  console.log(username);
   const dispatch = useDispatch();
   const { user, loading, error } = useSelector((state) => state.userInfo);
+
   useEffect(() => {
-    const val = localStorage.getItem("userLocal");
-    const nameVals = val.split(`"`);
-    if (val) {
-      dispatch(getUserInfo(nameVals[1]));
-    }
-  }, [localStorage.getItem("userLocal")]);
+    dispatch(getUserInfo(username));
+  }, [username]);
 
   return (
     <>

@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/user" element={<UserInfo />} />
+        <Route exact path="/user/:username" element={<UserInfo />} />
         <Route exact path="/rating" element={<RatingChange />} />
         <Route exact path="/submissions" element={<Submissions />} />
         <Route exact path="/blogs" element={<UserBlog />} />

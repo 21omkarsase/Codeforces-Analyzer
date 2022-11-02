@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./Submission.module.css";
 
 function Submission({ sub }) {
-  let solutionLink = `https://codeforces.com/contest/${sub.contestId}/submission/${sub.id}`;
-  let problemLink = `https://codeforces.com/contest/${sub.contestId}/problem/${sub.problem.index}`;
+  const solutionLink = `https://codeforces.com/contest/${sub.contestId}/submission/${sub.id}`;
+  const problemLink = `https://codeforces.com/contest/${sub.contestId}/problem/${sub.problem.index}`;
   const memoryUsed = sub.memoryConsumedBytes / 1000000;
   return (
     <div className={classes.sub}>

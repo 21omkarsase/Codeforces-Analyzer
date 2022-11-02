@@ -3,14 +3,19 @@ import { getSubmissions } from "../../Actions/userAction";
 import classes from "./Submissions.module.css";
 import Submission from "./Submission";
 import { useDispatch, useSelector } from "react-redux";
+import Loader from "../Layout/Loader";
+import Error from "../Layout/Error";
 function Submissions() {
   const [count, setCount] = useState(0);
   const dispatch = useDispatch();
-  const { submissions } = useSelector((state) => state.userSubmissions);
+  const { submissions, loading, error } = useSelector(
+    (state) => state.userSubmissions
+  );
+  const { user } = useSelector((state) => state.userInfo);
   const fetchSubmissions = () => {
-    const val = localStorage.getItem("userLocal");
-    const nameVals = val.split(`"`);
-    dispatch(getSubmissions(nameVals[1], count));
+    if (user.handle) {
+      dispatch(getSubmissions(user.handle));
+    }
   };
 
   useEffect(() => {
@@ -29,15 +34,18 @@ function Submissions() {
           onChange={(e) => setCount(e.target.value)}
           value={count}
           type="number"
+          required
           placeholder="Enter count of submissions"
         />
         <button>submit</button>
       </form>
       <div className={classes.subs}>
-        {submissions &&
+        {error && !submissions && <Error error={error} />}
+        {loading && <Loader />}
+        {!loading &&
+          submissions &&
           submissions.length > 0 &&
           submissions.map((sub) => <Submission key={sub.id} sub={sub} />)}
-        {!submissions && <p>No Submissions Found</p>}
       </div>
     </section>
   );

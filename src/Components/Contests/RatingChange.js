@@ -12,13 +12,13 @@ function RatingChange() {
     (state) => state.contestsInfo
   );
 
+  const { user } = useSelector((state) => state.userInfo);
+
   useEffect(() => {
-    const val = localStorage.getItem("userLocal");
-    const nameVals = val.split(`"`);
-    if (!error && val) {
-      dispatch(getUserContests(nameVals[1]));
+    if (user) {
+      dispatch(getUserContests(user.handle));
     }
-  }, [localStorage.getItem("userLocal")]);
+  }, [user]);
 
   return (
     <>

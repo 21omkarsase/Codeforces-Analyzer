@@ -1,7 +1,13 @@
 import React from "react";
 import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Header() {
+  const { user } = useSelector((state) => state.userInfo);
+  let username = "/user";
+  if (user) {
+    username = `/user/${user.handle}`;
+  }
   return (
     <>
       <section className={classes.navbar}>
@@ -12,9 +18,15 @@ function Header() {
             </Link>
           </div>
           <div className={classes.nav_links}>
-            <Link to="/user">
-              <span>User Info</span>
-            </Link>
+            {user ? (
+              <Link to={username}>
+                <span>User Info</span>
+              </Link>
+            ) : (
+              <Link to="/user">
+                <span>User Info</span>
+              </Link>
+            )}
             <Link to="/rating">
               <span>Ratings</span>
             </Link>
