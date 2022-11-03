@@ -4,9 +4,10 @@ import User from "../UserInfo/User";
 import Loader from "../Layout/Loader";
 import { getUserInfo } from "../../Actions/userAction";
 import Error from "../Layout/Error";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function UserInfo() {
+  const navigate = useNavigate();
   const { username } = useParams();
   console.log(username);
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ function UserInfo() {
 
   useEffect(() => {
     dispatch(getUserInfo(username));
+    if (!user) {
+      console.log("yes");
+      navigate("/");
+    } else console.log("not");
   }, [username]);
 
   return (

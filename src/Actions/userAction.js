@@ -25,14 +25,21 @@ export const getUserInfo =
   async (dispatch) => {
     try {
       dispatch({ type: USER_REQUEST });
-      const { data } = await axios.get(
+      const response = await axios.get(
         `https://codeforces.com/api/user.info?handles=${username}`
       );
-      if (data.status === "OK") {
-        dispatch({ type: USER_SUCCESS, payload: data.result[0] });
+      if (response.data.status === "OK") {
+        dispatch({ type: USER_SUCCESS, payload: response.data.result[0] });
       }
     } catch (error) {
-      dispatch({ type: USER_FAIL, payload: error.response.data });
+      if (error.response)
+        dispatch({ type: USER_FAIL, payload: error.response.data });
+      else if (error.request) {
+        dispatch({
+          type: USER_FAIL,
+          payload: "Check your internet connection and try again ",
+        });
+      }
     }
   };
 
@@ -41,14 +48,21 @@ export const getUserContests =
   async (dispatch) => {
     try {
       dispatch({ type: USER_RATING_REQUEST });
-      const { data } = await axios.get(
+      const response = await axios.get(
         `https://codeforces.com/api/user.rating?handle=${username}`
       );
-      if (data.status === "OK") {
-        dispatch({ type: USER_RATING_SUCCESS, payload: data.result });
+      if (response.data.status === "OK") {
+        dispatch({ type: USER_RATING_SUCCESS, payload: response.data.result });
       }
     } catch (error) {
-      dispatch({ type: USER_RATING_FAIL, payload: error.response.data });
+      if (error.response)
+        dispatch({ type: USER_RATING_FAIL, payload: error.response.data });
+      else if (error.request) {
+        dispatch({
+          type: USER_RATING_FAIL,
+          payload: "Check your internet connection and try again ",
+        });
+      }
     }
   };
 
@@ -57,14 +71,24 @@ export const getSubmissions =
   async (dispatch) => {
     try {
       dispatch({ type: USER_SUBMISSION_REQUEST });
-      const { data } = await axios.get(
+      const response = await axios.get(
         `https://codeforces.com/api/user.status?handle=${username}&from=1&count=${count}`
       );
-      if (data.status === "OK") {
-        dispatch({ type: USER_SUBMISSION_SUCCESS, payload: data.result });
+      if (response.data.status === "OK") {
+        dispatch({
+          type: USER_SUBMISSION_SUCCESS,
+          payload: response.data.result,
+        });
       }
     } catch (error) {
-      dispatch({ type: USER_SUBMISSION_FAIL, payload: error.response.data });
+      if (error.response)
+        dispatch({ type: USER_SUBMISSION_FAIL, payload: error.response.data });
+      else if (error.request) {
+        dispatch({
+          type: USER_SUBMISSION_FAIL,
+          payload: "Check your internet connection and try again ",
+        });
+      }
     }
   };
 
@@ -73,14 +97,20 @@ export const getUserBlogs =
   async (dispatch) => {
     try {
       dispatch({ type: USER_BLOG_REQUEST });
-      const { data } = await axios.get(
+      const response = await axios.get(
         `https://codeforces.com/api/user.blogEntries?handle=${username}`
       );
-      if (data.status === "OK") {
-        dispatch({ type: USER_BLOG_SUCCESS, payload: data.result });
+      if (response.data.status === "OK") {
+        dispatch({ type: USER_BLOG_SUCCESS, payload: response.data.result });
       }
-      console.log(data);
     } catch (error) {
-      dispatch({ type: USER_BLOG_FAIL, payload: error.response.data });
+      if (error.response)
+        dispatch({ type: USER_BLOG_FAIL, payload: error.response.data });
+      else if (error.request) {
+        dispatch({
+          type: USER_BLOG_FAIL,
+          payload: "Check your internet connection and try again ",
+        });
+      }
     }
   };

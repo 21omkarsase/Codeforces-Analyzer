@@ -17,6 +17,7 @@ function Home() {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
           type="text"
+          placeholder="Enter Codeforces username"
         />
         <button>submit</button>
       </form>

@@ -1,0 +1,27 @@
+.name {
+    color: white;
+}
+
+footer {
+    margin-top: 56px;
+    background-color: rgba(12, 9, 9, 0.92);
+    color: white;
+    padding: 10px 0;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social_links {
+    display: flex;
+    gap: 10px;
+}
+
+.social_link {
+    display: flex;
+    gap: 5px;
+}

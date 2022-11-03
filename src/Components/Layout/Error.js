@@ -5,7 +5,8 @@ function Error({ error }) {
   console.log(error);
   return (
     <div className={classes.error}>
-      <h1>{error.comment}</h1>
+      {error.comment && <h1>{error.comment}</h1>}
+      {!error.comment && <h1>{error}</h1>}
     </div>
   );
 }

@@ -2,11 +2,21 @@ import React from "react";
 import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleInfo,
+  faSquarePollVertical,
+  faBookmark,
+  faBlog,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const { user } = useSelector((state) => state.userInfo);
   let username = "/user";
+  let accountURL;
   if (user) {
     username = `/user/${user.handle}`;
+    accountURL = `https://codeforces.com/profile/${user.handle}`;
   }
   return (
     <>
@@ -18,24 +28,44 @@ function Header() {
             </Link>
           </div>
           <div className={classes.nav_links}>
-            {user ? (
-              <Link to={username}>
-                <span>User Info</span>
-              </Link>
-            ) : (
-              <Link to="/user">
-                <span>User Info</span>
-              </Link>
-            )}
-            <Link to="/rating">
-              <span>Ratings</span>
+            <Link className={classes.nav_link} to={user ? username : "/"}>
+              <span>
+                <FontAwesomeIcon icon={faCircleInfo} />
+              </span>
+              <span>User Info</span>
             </Link>
-            <Link to="/submissions">
+            <Link className={classes.nav_link} to={user ? "/rating" : "/"}>
+              <span>
+                <FontAwesomeIcon icon={faSquarePollVertical} />
+              </span>
+              <span>Contests</span>{" "}
+            </Link>
+            <Link className={classes.nav_link} to={user ? "/submissions" : "/"}>
+              <span>
+                <FontAwesomeIcon icon={faBookmark} />
+              </span>{" "}
               <span>Submissions</span>
             </Link>
-            <Link to="blogs">
+            <Link className={classes.nav_link} to={user ? "blogs" : "/"}>
+              <span>
+                <FontAwesomeIcon icon={faBlog} />
+              </span>{" "}
               <span>User Blogs</span>
             </Link>
+            <div className={classes.account}>
+              {user && (
+                <>
+                  <span>
+                    <FontAwesomeIcon icon={faUser} />
+                  </span>
+                  <span>
+                    <a target="_blank" href={accountURL}>
+                      {user.handle}
+                    </a>
+                  </span>
+                </>
+              )}
+            </div>
           </div>
         </nav>
       </section>

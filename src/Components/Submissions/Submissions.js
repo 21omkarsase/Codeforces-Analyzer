@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
 function Submissions() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(10);
   const dispatch = useDispatch();
   const { submissions, loading, error } = useSelector(
     (state) => state.userSubmissions

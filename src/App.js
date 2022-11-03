@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/submissions" element={<Submissions />} />
         <Route exact path="/blogs" element={<UserBlog />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
