@@ -3,6 +3,7 @@ import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
   faCircleInfo,
   faSquarePollVertical,
@@ -23,6 +24,17 @@ function Header() {
       <section className={classes.navbar}>
         <nav className={classes.nav}>
           <div className={classes.logo}>
+            <div className={classes.github_logo}>
+              <a
+                target="_blank"
+                href="https://github.com/21omkarsase/Codeforces-Visualizer/"
+              >
+                <FontAwesomeIcon
+                  className={classes.githubLogo}
+                  icon={faGithub}
+                />
+              </a>
+            </div>
             <Link to="/">
               <span>Codeforces Visualizer</span>
             </Link>

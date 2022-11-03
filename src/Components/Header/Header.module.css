@@ -1,16 +1,27 @@
 .navbar {
     background-color: rgba(0, 0, 0, 0.772);
     color: white;
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
+    margin: 0 20% 0 0;
     align-items: center;
 }
+
+.logo {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.githubLogo {
+    font-size: 70px;
+    transform: rotate(45deg);
+}
+
 
 .nav span {
     color: white;

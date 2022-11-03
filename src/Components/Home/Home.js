@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Home.module.css";
+import { useDispatch } from "react-redux";
+import { getUserInfo } from "../../Actions/userAction";
 import { useNavigate } from "react-router-dom";
-
 function Home() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const dispatch = useDispatch();
+
+  const fetchUserDetails = () => {
+    dispatch(getUserInfo(username));
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    navigate(`/user/${username}`);
+    fetchUserDetails();
     setUsername("");
+    navigate(`/user/${username}`);
   };
   return (
     <div className={classes.search}>
