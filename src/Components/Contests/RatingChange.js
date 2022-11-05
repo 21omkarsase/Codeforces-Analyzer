@@ -5,9 +5,11 @@ import classes from "./RatingChange.module.css";
 import Contest from "./Contests.js";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
+import { useNavigate } from "react-router-dom";
 
 function RatingChange() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { contests, loading, error } = useSelector(
     (state) => state.contestsInfo
   );
@@ -17,6 +19,12 @@ function RatingChange() {
   useEffect(() => {
     if (user) {
       dispatch(getUserContests(user.handle));
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
     }
   }, [user]);
 
@@ -31,6 +39,9 @@ function RatingChange() {
           contests.map((contest) => (
             <Contest key={contest.contestId} contest={contest} />
           ))}
+        {!error && !loading && contests && contests.length === 0 && (
+          <h1 className={classes.noContest}>No Contests Found</h1>
+        )}
         {error && <Error error={error} />}
       </section>
     </>

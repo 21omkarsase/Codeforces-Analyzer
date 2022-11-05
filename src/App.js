@@ -8,6 +8,7 @@ import Submissions from "./Components/Submissions/Submissions";
 import UserBlog from "./Components/Blog/UserBlog";
 import Home from "./Components/Home/Home";
 import Problems from "./Components/Problems/Problems";
+import PageNotFound from "./Components/PageNotFound/PageNotFound";
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/submissions" element={<Submissions />} />
         <Route exact path="/problems" element={<Problems />} />
         <Route exact path="/blogs" element={<UserBlog />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </>

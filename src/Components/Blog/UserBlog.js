@@ -5,9 +5,11 @@ import Blog from "./Blog";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
 import classes from "./UserBlog.module.css";
+import { useNavigate } from "react-router-dom";
 
 function UserBlog() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { blogs, loading, error } = useSelector((state) => state.userBlogs);
 
   const { user } = useSelector((state) => state.userInfo);
@@ -17,6 +19,13 @@ function UserBlog() {
       dispatch(getUserBlogs(user.handle));
     }
   }, [user]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, [user]);
+
   return (
     <section className={classes.blogArea}>
       {!error && loading && <Loader />}
@@ -26,6 +35,9 @@ function UserBlog() {
         blogs.length > 0 &&
         blogs.map((blog) => <Blog key={blog.id} blog={blog} />)}
       {error && <Error error={error} />}
+      {!error && !loading && blogs && blogs.length === 0 && (
+        <h1>No Blogs Found</h1>
+      )}
     </section>
   );
 }

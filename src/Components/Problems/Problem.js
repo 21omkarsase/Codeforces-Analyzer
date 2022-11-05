@@ -3,8 +3,12 @@ import classes from "./Problem.module.css";
 function Problem({ prob }) {
   const problemLink = `https://codeforces.com/contest/${prob.contestId}/problem/${prob.index}`;
   return (
-    <tr>
-      <td>{prob.name}</td>
+    <tr className={classes.table_row}>
+      <td>
+        <a target="_blank" href={problemLink}>
+          {prob.name}
+        </a>
+      </td>
       <td>{prob.rating}</td>
       <td>{prob.points || "-"}</td>
     </tr>
@@ -12,13 +16,3 @@ function Problem({ prob }) {
 }
 
 export default Problem;
-
-{
-  /* <p>
-        Problem :{" "}
-        <a href={problemLink} target="_blank">
-          {prob.name}
-        </a>
-      </p>
-      <p></p> */
-}

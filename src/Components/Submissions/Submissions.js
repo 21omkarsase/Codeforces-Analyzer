@@ -29,19 +29,22 @@ function Submissions() {
   };
   return (
     <section className={classes.submissions}>
-      <form onSubmit={submitHandler}>
-        <input
-          onChange={(e) => setCount(e.target.value)}
-          value={count}
-          type="number"
-          required
-          placeholder="Enter count of submissions"
-        />
-        <button>submit</button>
-      </form>
+      {loading && <Loader />}
+      {!loading && !error && (
+        <form onSubmit={submitHandler}>
+          <input
+            onChange={(e) => setCount(e.target.value)}
+            value={count}
+            type="number"
+            required
+            placeholder="Enter count of submissions"
+          />
+          <button>submit</button>
+        </form>
+      )}
+
       <div className={classes.subs}>
         {error && !submissions && <Error error={error} />}
-        {loading && <Loader />}
         {!loading &&
           submissions &&
           submissions.length > 0 &&

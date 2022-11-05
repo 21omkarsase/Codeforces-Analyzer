@@ -11,7 +11,7 @@ function Problems() {
   const { problems, loading, error } = useSelector(
     (state) => state.problemsInfo
   );
-  const [tag, setTag] = useState("");
+  const [tag, setTag] = useState("filter question by tag");
   const dispatch = useDispatch();
   const fetchProblemsByTags = () => {
     dispatch(getProblemsByTag(tag));
@@ -21,6 +21,10 @@ function Problems() {
   };
   const formHandler = (e) => {
     e.preventDefault();
+    console.log(tag, " tag");
+    if (tag === "filter question by tag") {
+      return;
+    }
     fetchProblemsByTags();
   };
   return (
@@ -32,6 +36,9 @@ function Problems() {
           value={tag}
           onChange={tagHandler}
         >
+          <option value="filter question by tag">
+            Filter Questions By Tag
+          </option>
           {Tags.map((tag) => (
             <option key={tag.label} value={tag.label}>
               {tag.label}

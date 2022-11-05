@@ -45,3 +45,7 @@ th {
     background-color: #04AA6D;
     color: white;
 }
+
+.problems {
+    min-height: 100vh;
+}

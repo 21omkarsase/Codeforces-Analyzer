@@ -4,6 +4,7 @@ function Blog({ blog }) {
   const blogURL = `https://codeforces.com/blog/entry/${blog.id}`;
   const blogTitle = blog.title.slice(3, -4);
   let date = new Date(blog.creationTimeSeconds * 1000);
+
   return (
     <section href="#" className={classes.data_card}>
       <h2 className={classes.blogName}>{blogTitle}</h2>
