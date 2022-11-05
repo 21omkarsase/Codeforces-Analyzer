@@ -36,7 +36,7 @@ function Header() {
                 />
               </a>
             </div>
-            <Link to="/">
+            <Link to="/Codeforces-Visualizer">
               <span>Codeforces Visualizer</span>
             </Link>
           </div>
@@ -47,25 +47,51 @@ function Header() {
               </span>
               <span>User Info</span>
             </Link>
-            <Link className={classes.nav_link} to={user ? "/rating" : "/"}>
+            <Link
+              className={classes.nav_link}
+              to={
+                user
+                  ? "/Codeforces-Visualizer/rating"
+                  : "/Codeforces-Visualizer"
+              }
+            >
               <span>
                 <FontAwesomeIcon icon={faSquarePollVertical} />
               </span>
               <span>Contests</span>{" "}
             </Link>
-            <Link className={classes.nav_link} to={user ? "/submissions" : "/"}>
+            <Link
+              className={classes.nav_link}
+              to={
+                user
+                  ? "/Codeforces-Visualizer/submissions"
+                  : "/Codeforces-Visualizer"
+              }
+            >
               <span>
                 <FontAwesomeIcon icon={faBookmark} />
               </span>{" "}
               <span>Submissions</span>
             </Link>
-            <Link className={classes.nav_link} to={user ? "/problems" : "/"}>
+            <Link
+              className={classes.nav_link}
+              to={
+                user
+                  ? "/Codeforces-Visualizer/problems"
+                  : "/Codeforces-Visualizer"
+              }
+            >
               <span>
                 <FontAwesomeIcon icon={faCode} />
               </span>{" "}
               <span>Problems</span>
             </Link>
-            <Link className={classes.nav_link} to={user ? "blogs" : "/"}>
+            <Link
+              className={classes.nav_link}
+              to={
+                user ? "/Codeforces-Visualizer/blogs" : "/Codeforces-Visualizer"
+              }
+            >
               <span>
                 <FontAwesomeIcon icon={faBlog} />
               </span>{" "}
