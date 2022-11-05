@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    width: 80%;
+    max-width: 1500px;
+    margin: 50px auto;
+}
+
+.selectTag {
+    width: 80%;
+    padding: 10px 20px;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form button {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+}
+
+
+.problems {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 2000px;
+}
+
+.probs th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}

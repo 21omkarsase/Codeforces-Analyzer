@@ -6,6 +6,7 @@ import {
   userRatingReducer,
   userSubmissionReducer,
   userBlogReducer,
+  getProblemsByTag,
 } from "../Reducers/userReducer";
 
 let initialState = {};
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   contestsInfo: userRatingReducer,
   userSubmissions: userSubmissionReducer,
   userBlogs: userBlogReducer,
+  problemsInfo: getProblemsByTag,
 });
 
 const store = createStore(

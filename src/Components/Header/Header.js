@@ -9,6 +9,7 @@ import {
   faSquarePollVertical,
   faBookmark,
   faBlog,
+  faCode,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 function Header() {
@@ -57,6 +58,12 @@ function Header() {
                 <FontAwesomeIcon icon={faBookmark} />
               </span>{" "}
               <span>Submissions</span>
+            </Link>
+            <Link className={classes.nav_link} to={user ? "/problems" : "/"}>
+              <span>
+                <FontAwesomeIcon icon={faCode} />
+              </span>{" "}
+              <span>Problems</span>
             </Link>
             <Link className={classes.nav_link} to={user ? "blogs" : "/"}>
               <span>

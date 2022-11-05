@@ -19,6 +19,11 @@ import {
   USER_BLOG_FAIL,
   USER_BLOG_SUCCESS,
 } from "../Constants/BlogConstants";
+import {
+  USER_PROBLEMS_REQUEST,
+  USER_PROBLEMS_FAIL,
+  USER_PROBLEMS_SUCCESS,
+} from "../Constants/ProblemsConstants";
 
 export const getUserInfo =
   (username = "") =>
@@ -109,6 +114,33 @@ export const getUserBlogs =
       else if (error.request) {
         dispatch({
           type: USER_BLOG_FAIL,
+          payload: "Check your internet connection and try again ",
+        });
+      }
+    }
+  };
+
+export const getProblemsByTag =
+  (tag = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: USER_PROBLEMS_REQUEST });
+      const response = await axios.get(
+        `https://codeforces.com/api/problemset.problems?tags=${tag}`
+      );
+      if (response.data.status === "OK") {
+        dispatch({
+          type: USER_PROBLEMS_SUCCESS,
+          payload: response.data.result.problems,
+        });
+      }
+      console.log(response);
+    } catch (error) {
+      if (error.response)
+        dispatch({ type: USER_PROBLEMS_FAIL, payload: error.response.data });
+      else if (error.request) {
+        dispatch({
+          type: USER_PROBLEMS_FAIL,
           payload: "Check your internet connection and try again ",
         });
       }

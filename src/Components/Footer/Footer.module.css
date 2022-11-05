@@ -25,3 +25,7 @@ footer {
     display: flex;
     gap: 5px;
 }
+
+.social_link a {
+    color: white;
+}

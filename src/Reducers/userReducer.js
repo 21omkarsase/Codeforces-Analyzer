@@ -19,6 +19,11 @@ import {
   USER_BLOG_REQUEST,
   USER_BLOG_SUCCESS,
 } from "../Constants/BlogConstants";
+import {
+  USER_PROBLEMS_FAIL,
+  USER_PROBLEMS_REQUEST,
+  USER_PROBLEMS_SUCCESS,
+} from "../Constants/ProblemsConstants";
 
 export const userInfoReducer = (state = {}, action) => {
   switch (action.type) {
@@ -109,6 +114,31 @@ export const userBlogReducer = (state = {}, action) => {
         blogs: action.payload,
       };
     case USER_BLOG_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export const getProblemsByTag = (state = {}, action) => {
+  switch (action.type) {
+    case USER_PROBLEMS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case USER_PROBLEMS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        problems: action.payload,
+      };
+    case USER_PROBLEMS_FAIL:
       return {
         ...state,
         loading: false,

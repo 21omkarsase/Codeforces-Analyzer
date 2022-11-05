@@ -1,5 +1,14 @@
 .submissions {
-    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e7f3f1;
+    font-family: 'Open Sans', sans-serif;
+    padding: 50px 70px;
 }
 
 .submissions form {
