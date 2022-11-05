@@ -14,10 +14,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 function Header() {
   const { user } = useSelector((state) => state.userInfo);
-  let username = "/user";
+  let username = "/Codeforces-Visualizer/user";
   let accountURL;
   if (user) {
-    username = `/user/${user.handle}`;
+    username = `/Codeforces-Visualizer/user/${user.handle}`;
     accountURL = `https://codeforces.com/profile/${user.handle}`;
   }
   return (

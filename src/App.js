@@ -14,7 +14,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/Codeforces-Visualizer" element={<Home />} />
         <Route
           exact
           path="/Codeforces-Visualizer/user/:username"

@@ -31,7 +31,7 @@ function Submissions() {
 
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      navigate("/Codeforces-Visualizer");
     }
   }, [user]);
   return (

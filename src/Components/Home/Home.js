@@ -22,7 +22,7 @@ function Home() {
     setUsername("");
     setIsWaiting(true);
     setTimeout(() => {
-      navigate(`/user/${username}`);
+      navigate(`/Codeforces-Visualizer/user/${username}`);
       setIsWaiting(false);
     }, 2000);
   };

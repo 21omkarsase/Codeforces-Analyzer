@@ -25,7 +25,7 @@ function RatingChange() {
 
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      navigate("/Codeforces-Visualizer");
     }
   }, [user]);
 

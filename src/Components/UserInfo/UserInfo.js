@@ -11,7 +11,7 @@ function UserInfo() {
   const { user, loading, error } = useSelector((state) => state.userInfo);
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      navigate("/Codeforces-Visualizer");
     }
   }, [user]);
   return (
