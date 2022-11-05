@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Codeforces-Visualizer/static/css/main.9ac148ed.css",
+    "main.js": "/Codeforces-Visualizer/static/js/main.ed1dd2ce.js",
+    "index.html": "/Codeforces-Visualizer/index.html",
+    "main.9ac148ed.css.map": "/Codeforces-Visualizer/static/css/main.9ac148ed.css.map",
+    "main.ed1dd2ce.js.map": "/Codeforces-Visualizer/static/js/main.ed1dd2ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ac148ed.css",
+    "static/js/main.ed1dd2ce.js"
+  ]
+}
