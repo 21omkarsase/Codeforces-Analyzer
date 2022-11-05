@@ -20,8 +20,10 @@ function Submission({ sub }) {
       <p>
         <span> Tags :</span>
         <span>
+          {" "}
+          |{" "}
           {sub.problem.tags.map((tag) => (
-            <span>{tag} </span>
+            <span>{tag} | </span>
           ))}
         </span>
       </p>

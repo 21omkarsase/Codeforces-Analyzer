@@ -7,8 +7,8 @@ function Contests({ contest }) {
     <section href="#" className={classes.data_card}>
       <h2 className={classes.contestName}>{contest.contestName}</h2>
       <h4 className={classes.rank}>Contest Rank : {contest.rank}</h4>
-      <p>Rating Before contest : {contest.newRating}</p>
-      <p>Rating After contest : {contest.oldRating}</p>
+      <p>Rating Before contest : {contest.oldRating}</p>
+      <p>Rating After contest : {contest.newRating}</p>
       <span className={classes.link_text}>
         <a className={classes.contestLink} target="_blank" href={contestURL}>
           View On Codeforces

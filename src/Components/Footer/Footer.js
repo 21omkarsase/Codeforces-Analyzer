@@ -13,23 +13,27 @@ function Footer() {
       <div className={classes.footer}>
         <h3 className={classes.name}>| Omkar Sase |</h3>
         <div className={classes.social_links}>
-          <div className={classes.social_link}>
-            {" "}
-            <FontAwesomeIcon icon={faGithub} />
-            <span>Github</span>
-          </div>
-          <div className={classes.social_link}>
-            <FontAwesomeIcon icon={faLinkedin} /> <span>Linkedin</span>
-          </div>
-          <div className={classes.social_link}>
-            <FontAwesomeIcon icon={faInstagram} /> <span>Instagram</span>
-          </div>
-          <div className={classes.social_link}>
-            <FontAwesomeIcon icon={faEnvelope} />{" "}
-            <span>
-              <a href="mailto:saseomkar214@gmail.com">Mail</a>
-            </span>
-          </div>
+          <a href="https://github.com/21omkarsase" target="_blank">
+            <div className={classes.social_link}>
+              <FontAwesomeIcon icon={faGithub} /> <span> Github</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/omkarsase/" target="_blank">
+            <div className={classes.social_link}>
+              <FontAwesomeIcon icon={faLinkedin} /> <span>Linkedin</span>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/_omkarsase/" target="_blank">
+            <div className={classes.social_link}>
+              <FontAwesomeIcon icon={faInstagram} /> <span>Instagram</span>
+            </div>
+          </a>
+          <a href="mailto:saseomkar214@gmail.com">
+            <div className={classes.social_link}>
+              <FontAwesomeIcon icon={faEnvelope} />
+              <span>Mail</span>
+            </div>
+          </a>
         </div>
       </div>
     </footer>

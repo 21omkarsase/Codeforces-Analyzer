@@ -6,6 +6,7 @@ import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
 import classes from "./UserBlog.module.css";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 function UserBlog() {
   const dispatch = useDispatch();
@@ -27,18 +28,21 @@ function UserBlog() {
   }, [user]);
 
   return (
-    <section className={classes.blogArea}>
-      {!error && loading && <Loader />}
-      {!error &&
-        !loading &&
-        blogs &&
-        blogs.length > 0 &&
-        blogs.map((blog) => <Blog key={blog.id} blog={blog} />)}
-      {error && <Error error={error} />}
-      {!error && !loading && blogs && blogs.length === 0 && (
-        <h1>No Blogs Found</h1>
-      )}
-    </section>
+    <>
+      <MetaData title="Visualizer | Blogs" />
+      <div className={classes.blogArea}>
+        {!error && loading && <Loader />}
+        {!error &&
+          !loading &&
+          blogs &&
+          blogs.length > 0 &&
+          blogs.map((blog) => <Blog key={blog.id} blog={blog} />)}
+        {error && <Error error={error} />}
+        {!error && !loading && blogs && blogs.length === 0 && (
+          <h1>No Blogs Found</h1>
+        )}
+      </div>
+    </>
   );
 }
 

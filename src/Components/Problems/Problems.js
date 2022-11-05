@@ -6,6 +6,7 @@ import { getProblemsByTag } from "../../Actions/userAction";
 import Problem from "./Problem";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
+import MetaData from "../Layout/MetaData";
 
 function Problems() {
   const { problems, loading, error } = useSelector(
@@ -28,43 +29,46 @@ function Problems() {
     fetchProblemsByTags();
   };
   return (
-    <section className={classes.problems}>
-      <form className={classes.form} onSubmit={formHandler}>
-        <select
-          className={classes.selectTag}
-          required
-          value={tag}
-          onChange={tagHandler}
-        >
-          <option value="filter question by tag">
-            Filter Questions By Tag
-          </option>
-          {Tags.map((tag) => (
-            <option key={tag.label} value={tag.label}>
-              {tag.label}
+    <>
+      <MetaData title="Visualizer | Problemset" />
+      <section className={classes.problems}>
+        <form className={classes.form} onSubmit={formHandler}>
+          <select
+            className={classes.selectTag}
+            required
+            value={tag}
+            onChange={tagHandler}
+          >
+            <option value="filter question by tag">
+              Filter Questions By Tag
             </option>
-          ))}
-        </select>
-        <button>submit</button>
-      </form>
-      <div className={classes.probs}>
-        {error && !problems && <Error error={error} />}
-        {loading && <Loader />}
-        <table className={classes.problems}>
-          {!loading && problems && problems.length > 0 && (
-            <tr>
-              <th>Problem</th>
-              <th>Rating</th>
-              <th>Points</th>
-            </tr>
-          )}
-          {!loading &&
-            problems &&
-            problems.length > 0 &&
-            problems.map((prob) => <Problem key={prob.id} prob={prob} />)}
-        </table>
-      </div>
-    </section>
+            {Tags.map((tag) => (
+              <option key={tag.label} value={tag.label}>
+                {tag.label}
+              </option>
+            ))}
+          </select>
+          <button>submit</button>
+        </form>
+        <div className={classes.probs}>
+          {error && !problems && <Error error={error} />}
+          {loading && <Loader />}
+          <table className={classes.problems}>
+            {!loading && problems && problems.length > 0 && (
+              <tr>
+                <th>Problem</th>
+                <th>Rating</th>
+                <th>Points</th>
+              </tr>
+            )}
+            {!loading &&
+              problems &&
+              problems.length > 0 &&
+              problems.map((prob) => <Problem key={prob.id} prob={prob} />)}
+          </table>
+        </div>
+      </section>
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ import Contest from "./Contests.js";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 function RatingChange() {
   const dispatch = useDispatch();
@@ -30,7 +31,8 @@ function RatingChange() {
 
   return (
     <>
-      <section className={classes.contests}>
+      <MetaData title="Visualizer | Contests" />
+      <div title="Visualizer | Contests" className={classes.contests}>
         {!error && loading && <Loader />}
         {!error &&
           !loading &&
@@ -43,7 +45,7 @@ function RatingChange() {
           <h1 className={classes.noContest}>No Contests Found</h1>
         )}
         {error && <Error error={error} />}
-      </section>
+      </div>
     </>
   );
 }

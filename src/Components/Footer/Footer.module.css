@@ -18,14 +18,15 @@ footer {
 
 .social_links {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .social_link {
     display: flex;
+    align-items: center;
     gap: 5px;
 }
 
-.social_link a {
+.social_links a {
     color: white;
 }

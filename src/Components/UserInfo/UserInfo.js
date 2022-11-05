@@ -4,6 +4,7 @@ import User from "../UserInfo/User";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
 import { useNavigate } from "react-router-dom";
+import MetaData from "../Layout/MetaData";
 
 function UserInfo() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ function UserInfo() {
   }, [user]);
   return (
     <>
+      <MetaData title="Visualizer | User" />
       {loading && <Loader />}
       {!loading && user && <User user={user} />}
       {!loading && !user && error && <Error error={error} />}

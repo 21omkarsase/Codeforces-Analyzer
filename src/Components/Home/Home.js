@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getUserInfo } from "../../Actions/userAction";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Layout/Loader";
+import MetaData from "../Layout/MetaData";
 
 function Home() {
   const navigate = useNavigate();
@@ -26,20 +27,23 @@ function Home() {
     }, 2000);
   };
   return (
-    <div className={classes.search}>
-      {isWaiting && <Loader />}
-      {!isWaiting && (
-        <form onSubmit={submitHandler}>
-          <input
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            type="text"
-            placeholder="Enter Codeforces username"
-          />
-          <button>submit</button>
-        </form>
-      )}
-    </div>
+    <>
+      <MetaData title="Visualizer | Home" />
+      <section className={classes.search}>
+        {isWaiting && <Loader />}
+        {!isWaiting && (
+          <form onSubmit={submitHandler}>
+            <input
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              type="text"
+              placeholder="Enter Codeforces username"
+            />
+            <button>submit</button>
+          </form>
+        )}
+      </section>
+    </>
   );
 }
 

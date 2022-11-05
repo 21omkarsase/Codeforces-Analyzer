@@ -9,6 +9,7 @@
     background: #e7f3f1;
     font-family: 'Open Sans', sans-serif;
     padding: 50px 70px;
+    flex-direction: column;
     min-height: 90vh;
 }
 
