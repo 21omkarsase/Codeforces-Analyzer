@@ -6,7 +6,7 @@ function Blog({ blog }) {
   let date = new Date(blog.creationTimeSeconds * 1000);
 
   return (
-    <section href="#" className={classes.data_card}>
+    <section href="#" className={classes.data_card_blogs}>
       <h2 className={classes.blogName}>{blogTitle}</h2>
       <h4 className={classes.date}>{date.toUTCString().slice(0, -12)}</h4>
 

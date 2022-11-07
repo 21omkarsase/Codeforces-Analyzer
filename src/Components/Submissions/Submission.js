@@ -6,7 +6,7 @@ function Submission({ sub }) {
   const problemLink = `https://codeforces.com/contest/${sub.contestId}/problem/${sub.problem.index}`;
   const memoryUsed = sub.memoryConsumedBytes / 1000000;
   return (
-    <section href="#" className={classes.data_card}>
+    <section href="#" className={classes.data_card_submission}>
       <h2 className={classes.contestName}>
         <a href={problemLink} target="_blank">
           {sub.problem.name}

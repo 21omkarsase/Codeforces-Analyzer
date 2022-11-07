@@ -26,3 +26,37 @@
     /* border: none; */
     outline: none;
 }
+
+@media screen and (max-width:800px) {
+    .search input {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .search button {
+        padding: 5px 10px;
+        font-size: 20px;
+    }
+
+    .search form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .search input {
+        font-size: 15px;
+        padding: 7px;
+    }
+
+    .search button {
+        padding: 3px 7px;
+        font-size: 15px;
+    }
+
+    .search form {
+        width: 90%;
+    }
+}

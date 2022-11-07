@@ -43,3 +43,44 @@
     gap: 20px;
     justify-content: center;
 }
+
+@media screen and (max-width:1000px) {
+    .submissions input {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .submissions button {
+        padding: 5px 10px;
+        font-size: 20px;
+    }
+
+    .submissions form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .submissions input {
+        font-size: 15px;
+        padding: 7px;
+    }
+
+    .submissions button {
+        padding: 3px 7px;
+        font-size: 15px;
+    }
+
+    .submissions form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .submissions {
+        padding: 10px;
+    }
+}

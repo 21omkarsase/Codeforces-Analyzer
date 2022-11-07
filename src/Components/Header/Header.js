@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -11,8 +11,10 @@ import {
   faBlog,
   faCode,
   faUser,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 function Header() {
+  const [navStatus, setNavStatus] = useState(false);
   const { user } = useSelector((state) => state.userInfo);
   let username = "/Codeforces-Visualizer/user";
   let accountURL;
@@ -20,27 +22,43 @@ function Header() {
     username = `/Codeforces-Visualizer/user/${user.handle}`;
     accountURL = `https://codeforces.com/profile/${user.handle}`;
   }
+
+  const toggleNavbar = () => {
+    setNavStatus((navStatus) => !navStatus);
+  };
+
+  const navOpen = "navOpen";
+  const navClose = "navClose";
   return (
     <>
       <section className={classes.navbar}>
         <nav className={classes.nav}>
-          <div className={classes.logo}>
-            <div className={classes.github_logo}>
-              <a
-                target="_blank"
-                href="https://github.com/21omkarsase/Codeforces-Visualizer/"
-              >
-                <FontAwesomeIcon
-                  className={classes.githubLogo}
-                  icon={faGithub}
-                />
-              </a>
+          <div className={classes.mainHeader}>
+            <div className={classes.logos}>
+              <div className={classes.github_logo}>
+                <a
+                  target="_blank"
+                  href="https://github.com/21omkarsase/Codeforces-Visualizer/"
+                >
+                  <FontAwesomeIcon
+                    className={classes.githubLogo}
+                    icon={faGithub}
+                  />
+                </a>
+              </div>
+              <Link to="/Codeforces-Visualizer">
+                <span className={classes.logoTitle}>Codeforces Visualizer</span>
+              </Link>{" "}
             </div>
-            <Link to="/Codeforces-Visualizer">
-              <span>Codeforces Visualizer</span>
-            </Link>
-          </div>
-          <div className={classes.nav_links}>
+            <div onClick={toggleNavbar} className={classes.bars}>
+              <FontAwesomeIcon className={classes.barIcon} icon={faBars} />
+            </div>
+          </div>{" "}
+          <div
+            className={`${navStatus ? classes.navOpen : classes.navClose} ${
+              classes.nav_links
+            }`}
+          >
             <Link className={classes.nav_link} to={user ? username : "/"}>
               <span>
                 <FontAwesomeIcon icon={faCircleInfo} />

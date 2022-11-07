@@ -53,3 +53,39 @@ th {
 .problems {
     min-height: 100vh;
 }
+
+@media screen and (max-width:1000px) {
+    .problems .selectTag {
+        font-size: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .problems button {
+        padding: 5px 10px;
+        font-size: 20px;
+    }
+
+    .problems form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .problems .selectTag {
+        font-size: 15px;
+        padding: 7px;
+    }
+
+    .problems button {
+        padding: 3px 7px;
+        font-size: 15px;
+    }
+
+    .problems form {
+        width: 90%;
+    }
+}

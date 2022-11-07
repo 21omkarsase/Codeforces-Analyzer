@@ -101,3 +101,27 @@
         transform: translateX(0.125em);
     }
 }
+
+@media screen and (max-width:400px) {
+    .data_card {
+        padding: 15px;
+        min-height: 250px;
+    }
+
+    .data_card .contestName {
+        font-size: 20px;
+    }
+
+    .data_card .rank {
+        font-size: 15px;
+    }
+
+    .data_card .link_text {
+
+        font-size: 1.125em;
+    }
+
+    .data_card p {
+        font-size: 15px;
+    }
+}

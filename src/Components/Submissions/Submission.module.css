@@ -1,4 +1,4 @@
-.data_card {
+.data_card_submission {
     display: flex;
     flex-direction: column;
     min-height: 450px;
@@ -13,13 +13,13 @@
     transition: transform 0.45s ease, background 0.45s ease;
 }
 
-.data_card .contestName {
+.data_card_submission .contestName {
     color: #627084;
     font-size: 30px;
 }
 
 
-.data_card .rating {
+.data_card_submission .rating {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 20px;
@@ -28,7 +28,7 @@
     margin: 20px 0;
 }
 
-.data_card .link_text {
+.data_card_submission .link_text {
     display: block;
     color: #753bbd;
     font-size: 1.125em;
@@ -38,57 +38,57 @@
     transition: color 0.45s ease;
 }
 
-.data_card .link_text svg {
+.data_card_submission .link_text svg {
     margin-left: 0.5em;
     transition: transform 0.6s ease;
 }
 
-.data_card .link_text svg path {
+.data_card_submission .link_text svg path {
     transition: fill 0.45s ease;
 }
 
-.data_card:hover {
+.data_card_submission:hover {
     background: #753bbd;
     transform: scale(1.02);
 }
 
-.data_card:hover h2,
-.data_card:hover p,
-.data_card:hover h4 {
+.data_card_submission:hover h2,
+.data_card_submission:hover p,
+.data_card_submission:hover h4 {
     color: #fff;
     border-bottom-color: #a754c4;
 }
 
-.data_card:hover p {
+.data_card_submission:hover p {
     opacity: 1;
     transform: none;
 }
 
-.data_card:hover a {
+.data_card_submission:hover a {
     opacity: 1;
     transform: none;
     color: white;
 }
 
-.data_card:hover .link_text {
+.data_card_submission:hover .link_text {
     color: #2e3c40;
 }
 
-.data_card:hover .link_text svg {
+.data_card_submission:hover .link_text svg {
     animation: point 1.25s infinite alternate;
 }
 
-.data_card:hover .link_text svg path {
+.data_card_submission:hover .link_text svg path {
     fill: #fff;
 }
 
-.data_card p {
+.data_card_submission p {
     color: #2e3c40;
     margin: 10px 0;
     font-size: 20px;
 }
 
-.data_card .contestLink {
+.data_card_submission .contestLink {
     color: #2e3c40;
 }
 
@@ -99,5 +99,30 @@
 
     100% {
         transform: translateX(0.125em);
+    }
+}
+
+@media screen and (max-width:550px) {
+    .data_card_submission {
+        padding: 15px;
+        min-height: 250px;
+        width: 250px;
+    }
+
+    .data_card_submission .contestName {
+        font-size: 20px;
+    }
+
+    .data_card_submission .rank {
+        font-size: 15px;
+    }
+
+    .data_card_submission .link_text {
+
+        font-size: 1.125em;
+    }
+
+    .data_card_submission p {
+        font-size: 15px;
     }
 }
