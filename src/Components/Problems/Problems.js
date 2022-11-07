@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classes from "./Problems.module.css";
 import { Tags } from "./Tags";
 import { useDispatch, useSelector } from "react-redux";
-import { getProblemsByTag } from "../../Actions/userAction";
+import { getProblemsByTag, sortProblems } from "../../Actions/userAction";
 import Problem from "./Problem";
 import Loader from "../Layout/Loader";
 import Error from "../Layout/Error";
@@ -13,6 +13,8 @@ function Problems() {
     (state) => state.problemsInfo
   );
   const [tag, setTag] = useState("filter question by tag");
+  const [order, setOrder] = useState("asc");
+
   const dispatch = useDispatch();
   const fetchProblemsByTags = () => {
     dispatch(getProblemsByTag(tag));
@@ -27,6 +29,10 @@ function Problems() {
       return;
     }
     fetchProblemsByTags();
+  };
+  const getSortedProblems = () => {
+    dispatch(sortProblems(problems, order));
+    setOrder(order === "asc" ? "dec" : "asc");
   };
   return (
     <>
@@ -57,7 +63,9 @@ function Problems() {
             {!loading && problems && problems.length > 0 && (
               <tr>
                 <th>Problem</th>
-                <th>Rating</th>
+                <th className={classes.ratingTitle} onClick={getSortedProblems}>
+                  Rating
+                </th>
                 <th>Points</th>
               </tr>
             )}

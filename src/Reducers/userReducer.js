@@ -22,6 +22,7 @@ import {
 import {
   USER_PROBLEMS_FAIL,
   USER_PROBLEMS_REQUEST,
+  SORT_PROBLEMS_ARRAY,
   USER_PROBLEMS_SUCCESS,
 } from "../Constants/ProblemsConstants";
 
@@ -143,6 +144,13 @@ export const getProblemsByTag = (state = {}, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+
+    case SORT_PROBLEMS_ARRAY:
+      return {
+        ...state,
+        loading: false,
+        problems: action.payload,
       };
 
     default:

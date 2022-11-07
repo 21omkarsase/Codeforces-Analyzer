@@ -46,6 +46,10 @@ th {
     color: white;
 }
 
+.problems .ratingTitle {
+    cursor: pointer;
+}
+
 .problems {
     min-height: 100vh;
 }

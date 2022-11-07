@@ -23,6 +23,7 @@ import {
   USER_PROBLEMS_REQUEST,
   USER_PROBLEMS_FAIL,
   USER_PROBLEMS_SUCCESS,
+  SORT_PROBLEMS_ARRAY,
 } from "../Constants/ProblemsConstants";
 
 export const getUserInfo =
@@ -146,3 +147,17 @@ export const getProblemsByTag =
       }
     }
   };
+export const sortProblems = (problems, order) => (dispatch) => {
+  if (order === "asc") {
+    problems = problems.filter((prob) => prob.rating > 0);
+    problems.sort(function (a, b) {
+      return b.rating - a.rating;
+    });
+  } else {
+    problems = problems.filter((prob) => prob.rating !== null);
+    problems.sort(function (a, b) {
+      return a.rating - b.rating;
+    });
+  }
+  dispatch({ type: SORT_PROBLEMS_ARRAY, payload: problems });
+};
