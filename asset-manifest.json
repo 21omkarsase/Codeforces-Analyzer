@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Codeforces-Visualizer/static/css/main.9ac148ed.css",
-    "main.js": "/Codeforces-Visualizer/static/js/main.6055ab38.js",
+    "main.css": "/Codeforces-Visualizer/static/css/main.87181710.css",
+    "main.js": "/Codeforces-Visualizer/static/js/main.068e3870.js",
     "index.html": "/Codeforces-Visualizer/index.html",
-    "main.9ac148ed.css.map": "/Codeforces-Visualizer/static/css/main.9ac148ed.css.map",
-    "main.6055ab38.js.map": "/Codeforces-Visualizer/static/js/main.6055ab38.js.map"
+    "main.87181710.css.map": "/Codeforces-Visualizer/static/css/main.87181710.css.map",
+    "main.068e3870.js.map": "/Codeforces-Visualizer/static/js/main.068e3870.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ac148ed.css",
-    "static/js/main.6055ab38.js"
+    "static/css/main.87181710.css",
+    "static/js/main.068e3870.js"
   ]
 }
