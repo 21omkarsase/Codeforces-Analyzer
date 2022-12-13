@@ -2,7 +2,7 @@
   "name": "visualizer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://21omkarsase.github.io/Codeforces-Visualizer",
+  "homepage": "https://21omkarsase.github.io/Codeforces-Analyzer",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
