@@ -11,12 +11,12 @@ function UserInfo() {
   const { user, loading, error } = useSelector((state) => state.userInfo);
   useEffect(() => {
     if (!user) {
-      navigate("/Codeforces-Visualizer");
+      navigate("/Codeforces-Analyzer");
     }
   }, [user]);
   return (
     <>
-      <MetaData title="Visualizer | User" />
+      <MetaData title="Analyzer | User" />
       {loading && <Loader />}
       {!loading && user && <User user={user} />}
       {!loading && !user && error && <Error error={error} />}

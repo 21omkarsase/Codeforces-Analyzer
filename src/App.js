@@ -14,32 +14,28 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route exact path="/Codeforces-Visualizer" element={<Home />} />
+        <Route exact path="/Codeforces-Analyzer" element={<Home />} />
         <Route
           exact
-          path="/Codeforces-Visualizer/user/:username"
+          path="/Codeforces-Analyzer/user/:username"
           element={<UserInfo />}
         />
         <Route
           exact
-          path="/Codeforces-Visualizer/rating"
+          path="/Codeforces-Analyzer/rating"
           element={<RatingChange />}
         />
         <Route
           exact
-          path="/Codeforces-Visualizer/submissions"
+          path="/Codeforces-Analyzer/submissions"
           element={<Submissions />}
         />
         <Route
           exact
-          path="/Codeforces-Visualizer/problems"
+          path="/Codeforces-Analyzer/problems"
           element={<Problems />}
         />
-        <Route
-          exact
-          path="/Codeforces-Visualizer/blogs"
-          element={<UserBlog />}
-        />
+        <Route exact path="/Codeforces-Analyzer/blogs" element={<UserBlog />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

@@ -22,13 +22,13 @@ function Home() {
     setUsername("");
     setIsWaiting(true);
     setTimeout(() => {
-      navigate(`/Codeforces-Visualizer/user/${username}`);
+      navigate(`/Codeforces-Analyzer/user/${username}`);
       setIsWaiting(false);
     }, 2000);
   };
   return (
     <>
-      <MetaData title="Visualizer | Home" />
+      <MetaData title="Analyzer | Home" />
       <section className={classes.search}>
         {isWaiting && <Loader />}
         {!isWaiting && (

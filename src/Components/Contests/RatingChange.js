@@ -25,14 +25,14 @@ function RatingChange() {
 
   useEffect(() => {
     if (!user) {
-      navigate("/Codeforces-Visualizer");
+      navigate("/Codeforces-Analyzer");
     }
   }, [user]);
 
   return (
     <>
-      <MetaData title="Visualizer | Contests" />
-      <div title="Visualizer | Contests" className={classes.contests}>
+      <MetaData title="Analyzer | Contests" />
+      <div title="Analyzer | Contests" className={classes.contests}>
         {!error && loading && <Loader />}
         {!error &&
           !loading &&

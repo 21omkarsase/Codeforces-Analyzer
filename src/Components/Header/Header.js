@@ -16,10 +16,10 @@ import {
 function Header() {
   const [navStatus, setNavStatus] = useState(false);
   const { user } = useSelector((state) => state.userInfo);
-  let username = "/Codeforces-Visualizer/user";
+  let username = "/Codeforces-Analyzer/user";
   let accountURL;
   if (user) {
-    username = `/Codeforces-Visualizer/user/${user.handle}`;
+    username = `/Codeforces-Analyzer/user/${user.handle}`;
     accountURL = `https://codeforces.com/profile/${user.handle}`;
   }
 
@@ -38,7 +38,7 @@ function Header() {
               <div className={classes.github_logo}>
                 <a
                   target="_blank"
-                  href="https://github.com/21omkarsase/Codeforces-Visualizer/"
+                  href="https://github.com/21omkarsase/Codeforces-Analyzer/"
                 >
                   <FontAwesomeIcon
                     className={classes.githubLogo}
@@ -46,8 +46,8 @@ function Header() {
                   />
                 </a>
               </div>
-              <Link to="/Codeforces-Visualizer">
-                <span className={classes.logoTitle}>Codeforces Visualizer</span>
+              <Link to="/Codeforces-Analyzer">
+                <span className={classes.logoTitle}>Codeforces Analyzer</span>
               </Link>{" "}
             </div>
             <div onClick={toggleNavbar} className={classes.bars}>
@@ -59,7 +59,10 @@ function Header() {
               classes.nav_links
             }`}
           >
-            <Link className={classes.nav_link} to={user ? username : "/"}>
+            <Link
+              className={classes.nav_link}
+              to={user ? username : "/Codeforces-Analyzer"}
+            >
               <span>
                 <FontAwesomeIcon icon={faCircleInfo} />
               </span>
@@ -67,11 +70,7 @@ function Header() {
             </Link>
             <Link
               className={classes.nav_link}
-              to={
-                user
-                  ? "/Codeforces-Visualizer/rating"
-                  : "/Codeforces-Visualizer"
-              }
+              to={user ? "/Codeforces-Analyzer/rating" : "/Codeforces-Analyzer"}
             >
               <span>
                 <FontAwesomeIcon icon={faSquarePollVertical} />
@@ -82,8 +81,8 @@ function Header() {
               className={classes.nav_link}
               to={
                 user
-                  ? "/Codeforces-Visualizer/submissions"
-                  : "/Codeforces-Visualizer"
+                  ? "/Codeforces-Analyzer/submissions"
+                  : "/Codeforces-Analyzer"
               }
             >
               <span>
@@ -94,9 +93,7 @@ function Header() {
             <Link
               className={classes.nav_link}
               to={
-                user
-                  ? "/Codeforces-Visualizer/problems"
-                  : "/Codeforces-Visualizer"
+                user ? "/Codeforces-Analyzer/problems" : "/Codeforces-Analyzer"
               }
             >
               <span>
@@ -106,9 +103,7 @@ function Header() {
             </Link>
             <Link
               className={classes.nav_link}
-              to={
-                user ? "/Codeforces-Visualizer/blogs" : "/Codeforces-Visualizer"
-              }
+              to={user ? "/Codeforces-Analyzer/blogs" : "/Codeforces-Analyzer"}
             >
               <span>
                 <FontAwesomeIcon icon={faBlog} />

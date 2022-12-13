@@ -36,7 +36,7 @@ function Problems() {
   };
   return (
     <>
-      <MetaData title="Visualizer | Problemset" />
+      <MetaData title="Analyzer | Problemset" />
       <section className={classes.problems}>
         <form className={classes.form} onSubmit={formHandler}>
           <select

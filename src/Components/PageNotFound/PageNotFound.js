@@ -5,7 +5,7 @@ function PageNotFound() {
     <div className={classes.pageNotFound}>
       <h3>Page Not Found</h3>
       <h1>
-        Return To <a href="/Codeforces-Visualizer">Home Page</a>
+        Return To <a href="/Codeforces-Analyzer">Home Page</a>
       </h1>
     </div>
   );
